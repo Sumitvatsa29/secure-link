@@ -1,0 +1,28 @@
+{
+    "name": "secure link",
+    "description": "Helps you to avoid accessing suspicious links on webpages. ",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "./popup.html",
+        "default_icon": "./icon.png"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "https://ajax.googleapis.com/",
+        "<all_urls>"
+    ],
+    "host_permissions":[
+      "http://127.0.0.1:5001/"
+    ],
+    "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
